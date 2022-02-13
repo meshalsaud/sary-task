@@ -1,9 +1,7 @@
 import React from 'react'
 
-const HeroList = () => {
+export const HeroList = () => {
   return (
     <div>HeroList</div>
   )
 }
-
-export default HeroList

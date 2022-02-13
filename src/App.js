@@ -1,19 +1,13 @@
 import React, { Suspense, useContext, useState, useEffect, useReducer } from "react";
 import { BrowserRouter as Router, Switch, Route, Redirect } from "react-router-dom";
 import { ProtectedRoute } from "./components/ProtectedRoute";
-import { routes } from "./routes";
-import { SideNav } from "./components/SideNav";
-import { DashboardHeader } from "./components/DashbaordHeader";
-import { Dashboard } from "./views/Dashboard";
-import { Wallet } from "./views/Wallet";
-import { Payment } from "./views/Payment";
-import { Purchases } from "./views/Purchases";
-import { Support } from "./views/Support";
-
 import { AppContext, AppInitState, AppReducer } from "../src/contexts/AppContext";
-import { Login } from "./views/Login";
 import { useTranslation } from "react-i18next";
 import axios from "axios";
+import { SideNav } from "./components/SideNav"
+import { DashboardHeader } from "./components/DashbaordHeader";
+import { HeroList } from "./views/HeroList/HeroList";
+import { HeroDetails } from "./views/HeroDetails/HeroDetails"
 
 const WrapperView = () => {
   const [AppState, AppDispatch] = useReducer(AppReducer, AppInitState);
@@ -47,13 +41,9 @@ const WrapperView = () => {
         />
         <div className="px-4 py-2 ">
           <Switch>
-            <ProtectedRoute secure exact path="/" component={() => <Redirect to="/dashboard" />} />
-            <ProtectedRoute secure exact path="/dashboard" component={Dashboard} />
-            <ProtectedRoute secure exact path="/wallet" component={Wallet} />
-            <ProtectedRoute secure exact path="/payments" component={Payment} />
-            <ProtectedRoute secure exact path="/support" component={Wallet} />
-
-            <ProtectedRoute path="*" component={() => <Redirect to="/dashboard" />} />
+            <ProtectedRoute secure exact path="/" component={() => <Redirect to="/heroes" />} />
+            <ProtectedRoute secure exact path="/heroes/:id" component={HeroDetails} />
+            <ProtectedRoute path="*" component={() => <Redirect to="/heroes" />} />
           </Switch>
         </div>
       </div>
@@ -62,23 +52,13 @@ const WrapperView = () => {
 };
 const App = () => {
   const [AppState, AppDispatch] = useReducer(AppReducer, AppInitState);
-  const { token } = AppState;
 
   useEffect(() => {}, []);
   return (
     <AppContext.Provider value={{ AppState, AppDispatch }}>
-      <Suspense fallback="loading">
         <Router>
-          {token ? (
-            <WrapperView />
-          ) : (
-            <Switch>
-              <ProtectedRoute exact path="/login" component={Login} />
-              <ProtectedRoute path="*" component={() => <Redirect to="/login" />} />
-            </Switch>
-          )}
+        <WrapperView />
         </Router>
-      </Suspense>
     </AppContext.Provider>
   );
 };
