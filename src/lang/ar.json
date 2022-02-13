@@ -1,0 +1,21 @@
+{
+  "loginErrorMessage": "خطا في بيانات الدخول",
+  "Sign In": "تسجيل الدخول",
+  "Sign out": "تسجيل الخروج",
+  "Account settings": "إعدادات الحساب",
+  "dashboard": "لوحة التحكم",
+  "wallet": "المحفظة",
+  "purchases": "المشتريات",
+  "payments": "المدفوعات",
+  "support": "الدعم",
+  "Account Status": "حالة الحساب",
+  "Active": "مفعل",
+  "Total Purchases": "إجمالي المشتريات",
+  "SAR": "ر.س",
+  "Payments": "المدفوعات",
+  "Next Payment": "الدفعة القادمة",
+  "Paid": "مدفوع",
+  "More": "المزيد",
+  "Welcome back": "حياك الله",
+  "Total Balance": "الرصيد"
+}

@@ -1,0 +1,10 @@
+{
+  "editor.formatOnSave": false,
+  "prettier.requireConfig": false,
+  "prettier.endOfLine": "lf",
+  "prettier.singleQuote": false,
+  "prettier.tabWidth": 2,
+  "prettier.semi": true,
+  "prettier.printWidth": 120,
+  "javascriptEnable": false,
+}
