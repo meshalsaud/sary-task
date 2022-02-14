@@ -3,6 +3,8 @@ import { RiDashboardLine } from "react-icons/ri";
 import { BiWallet, BiPurchaseTag } from "react-icons/bi";
 import { AiOutlineInfoCircle } from "react-icons/ai";
 import { HiOutlineSupport } from "react-icons/hi";
+import { ImDroplet } from "react-icons/im"
+
 import { NavItem } from "../NavItem";
 
 export const SideNav = () => {
@@ -13,8 +15,9 @@ export const SideNav = () => {
   };
   return (
     <div className="hidden w-80 relative lg:block ">
-      <div className="my-2 mb-6 flex justify-center">
+      <div className="my-2 mb-6 flex flex-row items-baseline justify-center">
       {/* <img src={Logo} alt="Siulah logo" className="h-28 w-28 text-center" /> */}
+    <ImDroplet fill="#4F45BA" className="h-5 w-6 text-or" />
       <span className="h-16 w-16 pt-4 text-center font-bold"> Heroes</span>
       </div>
       <ul className="px-7">
