@@ -15,10 +15,10 @@ export const SideNav = () => {
   };
   return (
     <div className="hidden w-80 relative lg:block ">
-      <div className="my-2 mb-6 flex flex-row items-baseline justify-center">
+      <div className="my-2 mb-6 pt-4 flex flex-row items-baseline justify-center">
       {/* <img src={Logo} alt="Siulah logo" className="h-28 w-28 text-center" /> */}
-    <ImDroplet fill="#4F45BA" className="h-5 w-6 text-or" />
-      <span className="h-16 w-16 pt-4 text-center font-bold"> Heroes</span>
+    <ImDroplet fill="#4F45BA" className="h-6 w-6" />
+      <span className="h-16 w-16 text-center font-bold"> Heroes</span>
       </div>
       <ul className="px-7">
         <NavItem
