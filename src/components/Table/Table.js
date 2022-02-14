@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { useTranslation } from "react-i18next";
-import JarrerLogo from "../../assets/images/jarrer-logo.svg";
-import { GrView } from "react-icons/gr";
-import { MdPayment } from "react-icons/md";
+import { GrOverview } from "react-icons/gr";
+import { GiBugleCall, GiCavalry } from "react-icons/gi"
+import { AiFillStar } from "react-icons/ai"
 
 export const Table = ({ data }) => {
   const [t, i18n] = useTranslation("common");
@@ -10,11 +10,10 @@ export const Table = ({ data }) => {
   return (
     <div class="container mx-auto px-4 sm:px-8 ">
       <div class="py-8">
-        <div class="flex flex-row mb-1 sm:mb-0 justify-between w-full">
-          <h2 class="text-2xl leading-tight">{t("Purchases")}</h2>
+        <div class="flex flex-row mb-1 sm:mb-0 justify-end w-full">
           <div class="text-end">
             <form class="flex flex-col md:flex-row w-3/4 md:w-full max-w-sm md:space-x-3 space-y-3 md:space-y-0 justify-center">
-              <div class=" relative ">
+              <div class="relative">
                 <input
                   type="text"
                   id='"form-subscribe-Filter'
@@ -23,10 +22,10 @@ export const Table = ({ data }) => {
                 />
               </div>
               <button
-                class="flex-shrink-0 px-4 py-2 text-base font-semibold text-white bg-secondary-0 rounded-lg shadow-md hover:bg-gray-600"
+                class="px-4 py-2 text-base font-semibold text-white bg-primary-0 rounded-lg shadow-md"
                 type="submit"
               >
-                Filter
+                 {t("Filter")}
               </button>
             </form>
           </div>
@@ -40,44 +39,38 @@ export const Table = ({ data }) => {
                     scope="col"
                     className="bg-dashboardBg px-5 py-3 bg-white  border-b border-gray-200 text-gray-800  text-left text-sm uppercase font-normal"
                   >
-                    #
+                    {t("Hero No.")}
                   </th>
                   <th
                     scope="col"
                     className="bg-dashboardBg px-5 py-3 bg-white  border-b border-gray-200 text-gray-800  text-left text-sm uppercase font-normal"
                   >
-                    Store
+                    {t("Hero Avatar")}
                   </th>
                   <th
                     scope="col"
                     className="bg-dashboardBg px-5 py-3 bg-white  border-b border-gray-200 text-gray-800  text-left text-sm uppercase font-normal"
                   >
-                    Purchase Date
+                    {t("Hero Name")}
+                  </th>
+                  <th
+                    scope="col"
+                    className="bg-dashboardBg px-5 py-3 bg-white  border-b border-gray-200 text-gray-800  text-left text-sm uppercase font-normal"
+                  >
+                    {t("Powers")}
                   </th>
 
                   <th
                     scope="col"
                     className="bg-dashboardBg px-5 py-3 bg-white  border-b border-gray-200 text-gray-800  text-left text-sm uppercase font-normal"
                   >
-                    Status
+                    {t("Rate")}
                   </th>
                   <th
                     scope="col"
                     className="bg-dashboardBg px-5 py-3 bg-white  border-b border-gray-200 text-gray-800  text-left text-sm uppercase font-normal"
                   >
-                    Amount
-                  </th>
-                  <th
-                    scope="col"
-                    className="bg-dashboardBg px-5 py-3 bg-white  border-b border-gray-200 text-gray-800  text-left text-sm uppercase font-normal"
-                  >
-                    Next Payment
-                  </th>
-                  <th
-                    scope="col"
-                    className="bg-dashboardBg px-5 py-3 bg-white  border-b border-gray-200 text-gray-800  text-left text-sm uppercase font-normal"
-                  >
-                    Action
+                    {t("Action")}
                   </th>
                 </tr>
               </thead>
@@ -88,24 +81,21 @@ export const Table = ({ data }) => {
                     return (
                       <tr key={index}>
                         <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                          <p class="text-gray-900 whitespace-no-wrap">8764</p>
+                          <p class="text-gray-900 whitespace-no-wrap">050000</p>
                         </td>
                         <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
                           <div class="flex items-center">
                             <div class="flex-shrink-0">
                               <a href="#" class="block relative">
-                                <img
-                                  alt="profil"
-                                  src={JarrerLogo}
-                                  class="mx-auto object-cover rounded-full h-12 w-14 "
-                                />
+                                <GiCavalry fill="#4F45BA" className="mx-auto object-cover rounded-full h-12 w-14 " />
+                              
                               </a>
                             </div>
                           </div>
                         </td>
 
                         <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                          <p class="text-gray-900 whitespace-no-wrap">12/09/2023</p>
+                          <p class="text-gray-900 whitespace-no-wrap">Meshal Saud</p>
                         </td>
                         <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
                           <span class="relative inline-block px-3 py-1 font-semibold text-green-900 leading-tight">
@@ -117,21 +107,17 @@ export const Table = ({ data }) => {
                           </span>
                         </td>
                         <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                          <a href="#" class="">
-                            500 SAR
-                          </a>
-                        </td>
-                        <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                          <a href="#" class="">
-                            12/09/2023
+                          <a href="#" class="flex items-center space-x-2">
+                            <span>5</span>
+                            <AiFillStar fill="#4F45BA" className="h-5 w-5" />
                           </a>
                         </td>
                         <td class="px-5 py-5 space-x-3 border-b border-gray-200 bg-white text-sm">
                           <button href="#" class="inline-block outline-none">
-                            <GrView fill="black" className="h-5 w-5 fill-current text-green-600" />
+                            <GrOverview className="h-5 w-5" />
                           </button>
                           <button href="#" class="inline-block outline-none">
-                            <MdPayment fill="black" className="h-5 w-5" />
+                            <GiBugleCall fill="#4F45BA" className="h-5 w-5" />
                           </button>
                         </td>
                       </tr>

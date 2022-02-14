@@ -1,20 +1,17 @@
 import React from 'react'
+import { useTranslation } from "react-i18next";
+import { Table } from "../../components/Table"
 
 export const HeroList = () => {
+  const [t, i18n] = useTranslation("common");
   return (
-    <div className='text-yellow-200'>
-      <div>
-      HeroList
+    <div className='mt-4'>
+      <div className='flex justify-between'>
+        <div className='text-2xl font-semibold'>
+        {t("Heroes List")}
+        </div>
       </div>
-      <div>
-      HeroList
-      </div>
-      <div>
-      HeroList
-      </div>
-      <div>
-      HeroList
-      </div>
+      <Table />
     </div>
     
   )
