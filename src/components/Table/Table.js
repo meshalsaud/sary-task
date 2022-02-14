@@ -4,10 +4,12 @@ import { GrOverview } from "react-icons/gr";
 import { GiBugleCall, GiCavalry } from "react-icons/gi"
 import { AiFillStar } from "react-icons/ai"
 import { CallHeroModal } from "../CallHeroModal";
+import { HeroProfile } from "../HeroProfile";
 
 export const Table = ({ data }) => {
   const [t, i18n] = useTranslation("common");
-  const [ showCallHeroModal, setShowCallHeroModal ] = useState(true)
+  const [ showCallHeroModal, setShowCallHeroModal ] = useState(false)
+  const [ showProfileModal, setShowProfileModal ] = useState(false)
 
   return (
     <div>
@@ -116,11 +118,11 @@ export const Table = ({ data }) => {
                           </a>
                         </td>
                         <td className="px-5 py-5 space-x-3 border-b border-gray-200 bg-white text-sm">
-                          <button href="#" className="inline-block outline-none">
+                          <button onClick={() => setShowProfileModal(!showProfileModal)} href="#" className="inline-block outline-none">
                             <GrOverview className="h-5 w-5" />
                           </button>
-                          <button href="#" className="inline-block outline-none">
-                            <GiBugleCall onClick={() => setShowCallHeroModal(!showCallHeroModal)} fill="#4F45BA" className="h-5 w-5 animate-pulse" />
+                          <button onClick={() => setShowCallHeroModal(!showCallHeroModal)} href="#" className="inline-block outline-none">
+                            <GiBugleCall fill="#4F45BA" className="h-5 w-5 animate-pulse" />
                           </button>
                         </td>
                       </tr>
@@ -191,6 +193,7 @@ export const Table = ({ data }) => {
       </div>
     </div>
     <CallHeroModal show={showCallHeroModal} setModal={setShowCallHeroModal} />
+    <HeroProfile show={showProfileModal} setModal={setShowProfileModal} />
     </div>
 
   );

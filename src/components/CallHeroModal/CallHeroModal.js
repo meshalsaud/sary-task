@@ -8,7 +8,7 @@ export const CallHeroModal = ({ show, setModal }) => {
   return (
     <div className={`${!show ? "hidden" : "block"}`}>
       <div
-        className={`overflow-y-auto overflow-x-hidden absolute top-1/2 right-40 z-50 justify-center items-center h-modal sm:h-full `}
+        className={`overflow-y-auto overflow-x-hidden absolute -top-0 right-1/3  z-50 justify-center items-center h-modal sm:h-full `}
         id="popup-modal"
       >
         <div className="relative px-4 w-full  h-full md:h-auto">
