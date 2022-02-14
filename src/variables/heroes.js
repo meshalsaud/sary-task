@@ -1,16 +1,22 @@
-const heroes = [{
+export const heroes = [{
         "name": "Meshal Saud",
-        "powers": ["coding with python", "coding with javaScript"],
+        "number": "0500953936",
+        "bio": "Full stack developer & data scinece",
+        "powers": ["java", "react", "css"],
         "rate": 4
     },
     {
         "name": "Khaled",
-        "powers": ["coding with java", "coding with react"],
+        "number": "0500953936",
+        "bio": "Full stack developer & data scinece",
+        "powers": ["java", "react", "html"],
         "rate": 3
     },
     {
         "name": "Waleed",
-        "powers": ["coding with GoLang", "Design with XD"],
+        "number": "0500953936",
+        "bio": "Full stack developer & data scinece",
+        "powers": ["java", "react"],
         "rate": 5
     },
 
