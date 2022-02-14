@@ -39,9 +39,10 @@ const WrapperView = () => {
           langugaeDropdownHandler={langugaeDropdownHandler}
           changeLanguageHandler={value => changeLanguageHandler(value)}
         />
-        <div className="px-4 py-2 ">
+        <div className="px-4 py-2">
           <Switch>
             <ProtectedRoute secure exact path="/" component={() => <Redirect to="/heroes" />} />
+            <ProtectedRoute secure exact path="/" component={HeroList} />
             <ProtectedRoute secure exact path="/heroes/:id" component={HeroDetails} />
             <ProtectedRoute path="*" component={() => <Redirect to="/heroes" />} />
           </Switch>
@@ -52,13 +53,22 @@ const WrapperView = () => {
 };
 const App = () => {
   const [AppState, AppDispatch] = useReducer(AppReducer, AppInitState);
+  const { token } = AppState;
 
   useEffect(() => {}, []);
   return (
     <AppContext.Provider value={{ AppState, AppDispatch }}>
+       <Suspense fallback="loading">
         <Router>
-        <WrapperView />
+          {!token ? (
+            <WrapperView />
+          ) : (
+            <Switch>
+              <ProtectedRoute path="*" component={() => <Redirect to="/login" />} />
+            </Switch>
+          )}
         </Router>
+      </Suspense>
     </AppContext.Provider>
   );
 };
