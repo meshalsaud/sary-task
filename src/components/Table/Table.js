@@ -28,7 +28,6 @@ export const Table = ({ data }) => {
   ) 
   
   const heroesToDisplay = filterText ? filteredHeroes : heroes;
-  console.log("item in filter ", heroesToDisplay)
   return (
     <div>
       <div className="container mx-auto px-4 sm:px-8 ">
@@ -95,126 +94,136 @@ export const Table = ({ data }) => {
                 </thead>
                 <tbody>
                   {!filteredHeroes
-                    ? heroes.map((hero) => (
-                        <tr key={heroes.number}>
-                          <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                            <p className="text-gray-900 whitespace-no-wrap">{hero.number}</p>
-                          </td>
-                          <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                            <div className="flex items-center">
-                              <div className="flex-shrink-0">
-                                <a href="#" className="block relative">
-                                  <GiCavalry fill="#4F45BA" className="mx-auto object-cover rounded-full h-12 w-14 " />
-                                </a>
+                    ? heroes
+                        .sort((a, b) => (a.name > b.name ? 1 : -1))
+                        .map((hero) => (
+                          <tr key={heroes.number}>
+                            <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                              <p className="text-gray-900 whitespace-no-wrap">{hero.number}</p>
+                            </td>
+                            <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                              <div className="flex items-center">
+                                <div className="flex-shrink-0">
+                                  <a href="#" className="block relative">
+                                    <GiCavalry
+                                      fill="#4F45BA"
+                                      className="mx-auto object-cover rounded-full h-12 w-14 "
+                                    />
+                                  </a>
+                                </div>
                               </div>
-                            </div>
-                          </td>
+                            </td>
 
-                          <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                            <p className="text-gray-900 whitespace-no-wrap">{hero.name}</p>
-                          </td>
-                          <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                            <div className="flex flex-wrap max-w-xs space-x-2">
-                              {hero.powers.map((power, index) => {
-                                return (
-                                  <span
-                                    key={index}
-                                    className="relative my-1 mx-2 inline-block px-3 py-1 font-semibold text-green-900 leading-tight"
-                                  >
+                            <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                              <p className="text-gray-900 whitespace-no-wrap">{hero.name}</p>
+                            </td>
+                            <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                              <div className="flex flex-wrap max-w-xs space-x-2">
+                                {hero.powers.map((power, index) => {
+                                  return (
                                     <span
-                                      aria-hidden="true"
-                                      className="absolute inset-0 bg-green-200 opacity-50 rounded-full"
-                                    ></span>
-                                    <span className="relative">{power}</span>
-                                  </span>
-                                );
-                              })}
-                            </div>
-                          </td>
-                          <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                            <a href="#" className="flex items-center space-x-2">
-                              <span>{hero.rate}</span>
-                              <AiFillStar fill="#4F45BA" className="h-5 w-5" />
-                            </a>
-                          </td>
-                          <td className="px-5 py-5 space-x-3 border-b border-gray-200 bg-white text-sm">
-                            <button
-                              onClick={() => heroProfileHandler(hero)}
-                              href="#"
-                              className="inline-block outline-none"
-                            >
-                              <GrOverview className="h-5 w-5" />
-                            </button>
-                            <button
-                              onClick={() => setShowCallHeroModal(!showCallHeroModal)}
-                              href="#"
-                              className="inline-block outline-none"
-                            >
-                              <GiBugleCall fill="#4F45BA" className="h-5 w-5 animate-pulse" />
-                            </button>
-                          </td>
-                        </tr>
-                      ))
-                    : heroesToDisplay.map((hero) => (
-                        <tr key={heroes.number}>
-                          <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                            <p className="text-gray-900 whitespace-no-wrap">{hero.number}</p>
-                          </td>
-                          <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                            <div className="flex items-center">
-                              <div className="flex-shrink-0">
-                                <a href="#" className="block relative">
-                                  <GiCavalry fill="#4F45BA" className="mx-auto object-cover rounded-full h-12 w-14 " />
-                                </a>
+                                      key={index}
+                                      className="relative my-1 mx-2 inline-block px-3 py-1 font-semibold text-green-900 leading-tight"
+                                    >
+                                      <span
+                                        aria-hidden="true"
+                                        className="absolute inset-0 bg-green-200 opacity-50 rounded-full"
+                                      ></span>
+                                      <span className="relative">{power}</span>
+                                    </span>
+                                  );
+                                })}
                               </div>
-                            </div>
-                          </td>
+                            </td>
+                            <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                              <a href="#" className="flex items-center space-x-2">
+                                <span>{hero.rate}</span>
+                                <AiFillStar fill="#4F45BA" className="h-5 w-5" />
+                              </a>
+                            </td>
+                            <td className="px-5 py-5 space-x-3 border-b border-gray-200 bg-white text-sm">
+                              <button
+                                onClick={() => heroProfileHandler(hero)}
+                                href="#"
+                                className="inline-block outline-none"
+                              >
+                                <GrOverview className="h-5 w-5" />
+                              </button>
+                              <button
+                                onClick={() => setShowCallHeroModal(!showCallHeroModal)}
+                                href="#"
+                                className="inline-block outline-none"
+                              >
+                                <GiBugleCall fill="#4F45BA" className="h-5 w-5 animate-pulse" />
+                              </button>
+                            </td>
+                          </tr>
+                        ))
+                    : heroesToDisplay
+                        .sort((a, b) => (a.name > b.name ? 1 : -1))
+                        .map((hero) => (
+                          <tr key={heroes.number}>
+                            <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                              <p className="text-gray-900 whitespace-no-wrap">{hero.number}</p>
+                            </td>
+                            <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                              <div className="flex items-center">
+                                <div className="flex-shrink-0">
+                                  <a href="#" className="block relative">
+                                    <GiCavalry
+                                      fill="#4F45BA"
+                                      className="mx-auto object-cover rounded-full h-12 w-14 "
+                                    />
+                                  </a>
+                                </div>
+                              </div>
+                            </td>
 
-                          <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                            <p className="text-gray-900 whitespace-no-wrap">{hero.name}</p>
-                          </td>
-                          <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                            <div className="flex flex-wrap max-w-xs space-x-2">
-                              {hero.powers.map((power, index) => {
-                                return (
-                                  <span
-                                    key={index}
-                                    className="relative my-1 mx-2 inline-block px-3 py-1 font-semibold text-green-900 leading-tight"
-                                  >
+                            <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                              <p className="text-gray-900 whitespace-no-wrap">{hero.name}</p>
+                            </td>
+                            <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                              <div className="flex flex-wrap max-w-xs space-x-2">
+                                {hero.powers.map((power, index) => {
+                                  return (
                                     <span
-                                      aria-hidden="true"
-                                      className="absolute inset-0 bg-green-200 opacity-50 rounded-full"
-                                    ></span>
-                                    <span className="relative">{power}</span>
-                                  </span>
-                                );
-                              })}
-                            </div>
-                          </td>
-                          <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                            <a href="#" className="flex items-center space-x-2">
-                              <span>{hero.rate}</span>
-                              <AiFillStar fill="#4F45BA" className="h-5 w-5" />
-                            </a>
-                          </td>
-                          <td className="px-5 py-5 space-x-3 border-b border-gray-200 bg-white text-sm">
-                            <button
-                              onClick={() => heroProfileHandler(hero)}
-                              href="#"
-                              className="inline-block outline-none"
-                            >
-                              <GrOverview className="h-5 w-5" />
-                            </button>
-                            <button
-                              onClick={() => setShowCallHeroModal(!showCallHeroModal)}
-                              href="#"
-                              className="inline-block outline-none"
-                            >
-                              <GiBugleCall fill="#4F45BA" className="h-5 w-5 animate-pulse" />
-                            </button>
-                          </td>
-                        </tr>
-                      ))}
+                                      key={index}
+                                      className="relative my-1 mx-2 inline-block px-3 py-1 font-semibold text-green-900 leading-tight"
+                                    >
+                                      <span
+                                        aria-hidden="true"
+                                        className="absolute inset-0 bg-green-200 opacity-50 rounded-full"
+                                      ></span>
+                                      <span className="relative">{power}</span>
+                                    </span>
+                                  );
+                                })}
+                              </div>
+                            </td>
+                            <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                              <a href="#" className="flex items-center space-x-2">
+                                <span>{hero.rate}</span>
+                                <AiFillStar fill="#4F45BA" className="h-5 w-5" />
+                              </a>
+                            </td>
+                            <td className="px-5 py-5 space-x-3 border-b border-gray-200 bg-white text-sm">
+                              <button
+                                onClick={() => heroProfileHandler(hero)}
+                                href="#"
+                                className="inline-block outline-none"
+                              >
+                                <GrOverview className="h-5 w-5" />
+                              </button>
+                              <button
+                                onClick={() => setShowCallHeroModal(!showCallHeroModal)}
+                                href="#"
+                                className="inline-block outline-none"
+                              >
+                                <GiBugleCall fill="#4F45BA" className="h-5 w-5 animate-pulse" />
+                              </button>
+                            </td>
+                          </tr>
+                        ))}
                 </tbody>
               </table>
             </div>

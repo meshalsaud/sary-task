@@ -19,5 +19,12 @@ export const heroes = [{
         "powers": ["java", "react"],
         "rate": 5
     },
+    {
+        "name": "Abrahim",
+        "number": "0500953936",
+        "bio": "Full stack developer & data scinece",
+        "powers": ["java", "react"],
+        "rate": 5
+    },
 
 ]
