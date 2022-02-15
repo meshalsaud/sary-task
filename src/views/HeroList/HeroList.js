@@ -7,7 +7,7 @@ export const HeroList = () => {
   return (
     <div className='mt-4'>
       <div className='flex justify-between'>
-        <div className='text-2xl font-semibold'>
+        <div className='text-2xl sm:mx-4 font-semibold'>
         {t("Heroes List")}
         </div>
       </div>

@@ -8,6 +8,7 @@ import { SideNav } from "./components/SideNav"
 import { DashboardHeader } from "./components/DashbaordHeader";
 import { HeroList } from "./views/HeroList/HeroList";
 import { HeroDetails } from "./views/HeroDetails/HeroDetails"
+import { Support } from "./views/Support/Support"
 
 const WrapperView = () => {
   const [AppState, AppDispatch] = useReducer(AppReducer, AppInitState);
@@ -43,7 +44,8 @@ const WrapperView = () => {
           <Switch>
             <ProtectedRoute secure exact path="/heroes" component={HeroList} />
             <ProtectedRoute secure exact path="/heroes/:id" component={HeroDetails} />
-            {/* <ProtectedRoute path="*" component={() => <Redirect to="/heroes" />} /> */}
+            <ProtectedRoute secure exact path="/support" component={Support} />
+            <ProtectedRoute path="*" component={() => <Redirect to="/heroes" />} />
           </Switch>
         </div>
       </div>

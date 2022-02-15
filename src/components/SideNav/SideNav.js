@@ -18,11 +18,11 @@ export const SideNav = () => {
       <div className="my-2  pt-4 flex flex-row items-baseline justify-center">
       {/* <img src={Logo} alt="Siulah logo" className="h-28 w-28 text-center" /> */}
     <ImDroplet fill="#4F45BA" className="h-6 w-6" />
-      <span className="h-16 w-16 text-center font-bold"> Heroes</span>
+      <span className="h-16 w-16 text-center font-bold">Heroes</span>
       </div>
       <ul className="px-7">
         <NavItem
-          link="dashboard"
+          link="heroes"
           icon={<RiDashboardLine className="h-7 w-7" />}
           title="dashboard"
           activePage={activePage}
@@ -35,15 +35,8 @@ export const SideNav = () => {
           activePage={activePage}
           changeActiveHandler={title => changeActiveHandler(title)}
         />
-        <NavItem
-          link="about"
-          icon={<AiOutlineInfoCircle className="h-7 w-7" />}
-          title="about"
-          activePage={activePage}
-          changeActiveHandler={title => changeActiveHandler(title)}
-        />
       </ul>
-      <div className="flex animate-pulse flex-col font-medium absolute text-center bottom-10 right-5 left-5  bg-gradient-to-r from-secondary-0 to-primary-50 p-8 text-white rounded-xl">
+      <div className="flex animate-pulse flex-col font-medium absolute text-center bottom-10 right-5 left-5  bg-gradient-to-r from-primary-0 to-primary-50 p-8 text-white rounded-xl">
         <span className="">
           Contact us for supporting
         </span>

@@ -30,7 +30,7 @@ export const Table = ({ data }) => {
   const heroesToDisplay = filterText ? filteredHeroes : heroes;
   return (
     <div>
-      <div className="container mx-auto px-4 sm:px-8 ">
+      <div className="container mx-auto px-4">
         <div className="py-8">
           <div className="flex flex-row mb-1 sm:mb-0 justify-end w-full">
             <div className="text-end">
@@ -96,8 +96,8 @@ export const Table = ({ data }) => {
                   {!filteredHeroes
                     ? heroes
                         .sort((a, b) => (a.name > b.name ? 1 : -1))
-                        .map((hero) => (
-                          <tr key={heroes.number}>
+                        .map((hero,index) => (
+                          <tr key={hero.number}>
                             <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
                               <p className="text-gray-900 whitespace-no-wrap">{hero.number}</p>
                             </td>
