@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useTranslation } from "react-i18next";
 import { RiDashboardLine } from "react-icons/ri";
 import { BiWallet, BiPurchaseTag } from "react-icons/bi";
 import { AiOutlineInfoCircle } from "react-icons/ai";
@@ -9,6 +10,8 @@ import { NavItem } from "../NavItem";
 
 export const SideNav = () => {
   const [activePage, setActivePage] = useState("dashboard");
+  const [t, i18n] = useTranslation("common");
+
 
   const changeActiveHandler = title => {
     setActivePage(title);
@@ -24,7 +27,7 @@ export const SideNav = () => {
         <NavItem
           link="heroes"
           icon={<RiDashboardLine className="h-7 w-7" />}
-          title="dashboard"
+          title={t("Dashbaord")}
           activePage={activePage}
           changeActiveHandler={title => changeActiveHandler(title)}
         />
@@ -38,10 +41,10 @@ export const SideNav = () => {
       </ul>
       <div className="flex animate-pulse flex-col font-medium absolute text-center bottom-10 right-5 left-5  bg-gradient-to-r from-primary-0 to-primary-50 p-8 text-white rounded-xl">
         <span className="">
-          Contact us for supporting
+        {t("Contact us for supporting")}
         </span>
         <button className="bg-white font-medium text-secondary-0 rounded-full py-1 px-4 my-2 hover:bg-gray-100">
-          Contact
+          {t("Contact")}
         </button>
       </div>
     </div>

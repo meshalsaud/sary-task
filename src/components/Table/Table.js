@@ -29,7 +29,7 @@ export const Table = ({ data }) => {
   
   const heroesToDisplay = filterText ? filteredHeroes : heroes;
   return (
-    <div>
+    <div dir="ltr">
       <div className="container mx-auto px-4">
         <div className="py-8">
           <div className="flex flex-row mb-1 sm:mb-0 justify-end w-full">
@@ -42,7 +42,7 @@ export const Table = ({ data }) => {
                     value={filterText}
                     id='"form-subscribe-Filter'
                     className="rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-primary-50 focus:border-transparent"
-                    placeholder="search.."
+                    placeholder={t("Search")}
                   />
                 </div>
               </div>
